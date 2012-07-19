@@ -1,11 +1,8 @@
 package com.example.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -24,18 +21,11 @@ public class CustomerControllerTest {
 	
 	@Test
 	public void testGetCustomerServicePhoneNumber(){
-		HttpSession session = Mockito.mock(HttpSession.class);
-		
-		String result = controller.getCustomerServicePhoneNumber(session);
+		String result = controller.getCustomerServicePhoneNumber(null);
 		Assert.assertNotNull(result);
 		Assert.assertSame(controller.getDefaultCSNumber(), result);
 		
-		result = controller.getCustomerServicePhoneNumber(null);
-		Assert.assertNotNull(result);
-		Assert.assertSame(controller.getDefaultCSNumber(), result);
-		
-		Mockito.when(session.getAttribute(Mockito.anyString())).thenReturn("dummyRegion");
-		result = controller.getCustomerServicePhoneNumber(session);
+		result = controller.getCustomerServicePhoneNumber("dummyRegion");
 		Assert.assertNotNull(result);
 		Assert.assertNotSame(controller.getDefaultCSNumber(), result);
 	}
