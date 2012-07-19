@@ -4,10 +4,12 @@ import java.util.HashSet;
 
 import org.apache.commons.lang.StringUtils;
 import org.mockito.Mockito;
+import org.springframework.stereotype.Component;
 
 import com.example.model.CustomerServicePhoneNumbers;
 import com.example.service.GeoResultsService;
 
+@Component
 public class DummyGeoResultsImpl implements GeoResultsService
 {
 	/* (non-Javadoc)
