@@ -1,6 +1,7 @@
 package com.example.controller;
 
-import org.apache.commons.lang.StringUtils;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +18,7 @@ public class CustomerController
 
 	private static final Logger logger = Logger.getLogger(CustomerController.class);
 	
-    private @Value("${defaultCustomerServiceNumber}") String defaultCSNumber;
+    private @Value("${defaultCustomerServiceNumber}") Set<String> defaultCSNumbers;
     
     @Autowired
     private GeoResultsService geoResultsService;
@@ -27,20 +28,20 @@ public class CustomerController
      * Produce customer service phone numbers for a given region Id. Each geographic region has its' zero or more customer service phone numbers. It is
      * possible to show more than one phone number. If there is no phone number associated a default phone number is used.
      */
-    public @ResponseBody String getCustomerServicePhoneNumber(@RequestParam String regionId) {
-        String phoneNumber;
+    public @ResponseBody Set<String> getCustomerServicePhoneNumber(@RequestParam String regionId) {
+    	Set<String> result;
         
         CustomerServicePhoneNumbers phoneNumbers = geoResultsService.getCustomerServicePhoneNumbers(regionId);
         if(phoneNumbers != null && !phoneNumbers.getPhoneNumbers().isEmpty()){
-        	phoneNumber = StringUtils.join(phoneNumbers.getPhoneNumbers(), null);
+        	result = phoneNumbers.getPhoneNumbers();
         }else{
         	logger.warn("No customer service numbers found.");
-        	phoneNumber = defaultCSNumber;
+        	result = defaultCSNumbers;
         }
-        return phoneNumber;
+        return result;
     }
 
-	public String getDefaultCSNumber() {
-		return defaultCSNumber;
+	public Set<String> getDefaultCSNumbers() {
+		return defaultCSNumbers;
 	}
 }

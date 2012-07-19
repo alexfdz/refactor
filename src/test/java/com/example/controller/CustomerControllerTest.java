@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.Set;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,12 +23,14 @@ public class CustomerControllerTest {
 	
 	@Test
 	public void testGetCustomerServicePhoneNumber(){
-		String result = controller.getCustomerServicePhoneNumber(null);
+		Set<String> result = controller.getCustomerServicePhoneNumber(null);
 		Assert.assertNotNull(result);
-		Assert.assertSame(controller.getDefaultCSNumber(), result);
+		Assert.assertSame(controller.getDefaultCSNumbers(), result);
+		Assert.assertSame(1, result.size());
 		
 		result = controller.getCustomerServicePhoneNumber("dummyRegion");
 		Assert.assertNotNull(result);
-		Assert.assertNotSame(controller.getDefaultCSNumber(), result);
+		Assert.assertNotSame(controller.getDefaultCSNumbers(), result);
+		Assert.assertSame(3, result.size());
 	}
 }
