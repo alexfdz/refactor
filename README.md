@@ -1,0 +1,4 @@
+refactor
+========
+
+Example of refactoring
