@@ -1,6 +1,8 @@
+package com.example.service;
+
 import java.util.Set;
 
-public interface GeoResults
+public interface GeoResultsService
 {
     public Set getCustomerServicePhoneNumbers();
 }

@@ -1,10 +1,15 @@
-import org.apache.log4j.Logger;
-
-import javax.servlet.http.HttpSession;
+package com.example.controller;
 
 import java.util.Set;
 
-public class CustomerService
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+import com.example.service.GeoResultsService;
+import com.example.service.impl.DummyGeoResultsImpl;
+
+public class CustomerController
 {
 
     public String DEFAULT_CS_NUMBER = "999999";
@@ -17,7 +22,7 @@ public class CustomerService
     {
 
         String phoneNumber = "";
-        GeoResults result = (GeoResults) session.getAttribute(GeoResultsImpl.GeoResults_KEY);
+        GeoResultsService result = (GeoResultsService) session.getAttribute(DummyGeoResultsImpl.GeoResults_KEY);
 
         if (result != null)
         {

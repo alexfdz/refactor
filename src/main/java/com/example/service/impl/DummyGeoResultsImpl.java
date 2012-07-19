@@ -1,7 +1,11 @@
+package com.example.service.impl;
+
 import java.util.HashSet;
 import java.util.Set;
 
-public class GeoResultsImpl implements GeoResults
+import com.example.service.GeoResultsService;
+
+public class DummyGeoResultsImpl implements GeoResultsService
 {
     public static String GeoResults_KEY ="geo_key";
 
