@@ -10,7 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/context.xml"})
+@ContextConfiguration(locations={"/test-context.xml"})
 public class CustomerControllerTest {
 
 	@Autowired
