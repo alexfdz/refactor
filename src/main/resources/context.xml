@@ -8,8 +8,8 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
+	<context:property-placeholder location = "classpath:/context.properties" />
 	<context:component-scan base-package="com.example.controller"/>
-	
 	<bean id="geoResultsService" class="com.example.service.impl.DummyGeoResultsImpl"/>
 
 </beans>

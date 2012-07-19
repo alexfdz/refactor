@@ -5,26 +5,26 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 
 import com.example.model.CustomerServicePhoneNumbers;
 import com.example.service.GeoResultsService;
-import com.example.service.impl.DummyGeoResultsImpl;
 
 @Controller
 public class CustomerController
 {
 	private static final Logger logger = Logger.getLogger(CustomerController.class);
-
-    public static final String DEFAULT_CS_NUMBER = "999999";
     public static final String REGION_KEY = "regionKey";
+    
+    private @Value("${defaultCustomerServiceNumber}") String defaultCSNumber;
     
     @Autowired
     private GeoResultsService geoResultsService;
 
     public String getCustomerServicePhoneNumber(HttpSession session){
     	String regionId = null;
-    	String phoneNumber = DEFAULT_CS_NUMBER;
+    	String phoneNumber = defaultCSNumber;
     	
     	if(session != null && session.getAttribute(REGION_KEY) instanceof String){
     		regionId =  (String)session.getAttribute(REGION_KEY);
@@ -46,4 +46,8 @@ public class CustomerController
     
         return phoneNumber;
     }
+
+	public String getDefaultCSNumber() {
+		return defaultCSNumber;
+	}
 }
