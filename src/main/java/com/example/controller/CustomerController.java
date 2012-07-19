@@ -27,6 +27,8 @@ public class CustomerController
     /**
      * Produce customer service phone numbers for a given region Id. Each geographic region has its' zero or more customer service phone numbers. It is
      * possible to show more than one phone number. If there is no phone number associated a default phone number is used.
+     * @param regionId
+     * @return Collection of the region customer service phone numbers or the default phone number 
      */
     public @ResponseBody Set<String> getCustomerServicePhoneNumber(@RequestParam String regionId) {
     	Set<String> result;
