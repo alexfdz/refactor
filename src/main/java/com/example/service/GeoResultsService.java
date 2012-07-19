@@ -1,8 +1,9 @@
 package com.example.service;
 
-import java.util.Set;
+import com.example.model.CustomerServicePhoneNumbers;
 
 public interface GeoResultsService
 {
-    public Set getCustomerServicePhoneNumbers();
+	public CustomerServicePhoneNumbers getCustomerServicePhoneNumbers(
+			String regionId);
 }
