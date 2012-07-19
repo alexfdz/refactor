@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-    <artifactId>refactor</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<artifactId>refactor</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
 
 	<name>refactor test</name>
-	
+
 	<properties>
 		<spring.version>3.1.1.RELEASE</spring.version>
 	</properties>
-	
+
 	<developers>
 		<developer>
 			<id>alexfdz</id>
@@ -21,6 +22,12 @@
 			<url>http://about.me/alexfernandez</url>
 		</developer>
 	</developers>
+
+	<scm>
+		<connection>scm:git:git@github.com:alexfdz/refactor.git</connection>
+		<url>scm:git:git@github.com:alexfdz/refactor.git</url>
+		<developerConnection>scm:git@github.com:alexfdz/refactor.git</developerConnection>
+	</scm>
 	
 	<dependencies>
 		<dependency>
@@ -47,21 +54,21 @@
 			<version>2.6</version>
 			<scope>compile</scope>
 		</dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.12</version>
-            <scope>compile</scope>
-        </dependency>
-        
-         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        <dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.12</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.5</version>
@@ -79,8 +86,8 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
-    </dependencies>
-	
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -113,7 +120,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<reporting>
 		<plugins>
 			<plugin>
@@ -165,5 +172,5 @@
 			</plugin>
 		</plugins>
 	</reporting>
-    
+
 </project>
